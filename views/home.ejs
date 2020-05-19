@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Restaurant Voting App</title>
+        <!-- Compiled and minified CSS -->
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+            <link rel="stylesheet" href="css/style.css">
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js"></script>
+            <!--Import Google Icon Font-->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!-- The core Firebase JS SDK is always required and must be listed first -->
+            
+
+            <!-- TODO: Add SDKs for Firebase products that you want to use
+                https://firebase.google.com/docs/web/setup#available-libraries -->
+            <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-analytics.js"></script>
+
+
+
+
+        <script>
+          var firebaseConfig = {
+                apiKey: "AIzaSyDz3a_IQ1GKpzQ9VdmbrOpg2m-yZJW1EV8",
+                authDomain: "votingapp-9bad6.firebaseapp.com",
+                databaseURL: "https://votingapp-9bad6.firebaseio.com",
+                projectId: "votingapp-9bad6",
+                storageBucket: "votingapp-9bad6.appspot.com",
+                messagingSenderId: "1002451175041",
+                appId: "1:1002451175041:web:6fac7e6b4f43255be32f80",
+                measurementId: "G-XZ87C73VH0"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+          
+        </script>            
+    </head>
+    <body>
+        <div class="container">
+            <h4> Voting App </h4>
+            <br>
+            <p>Add Restaurant: <input type="text" name="" id="addRestaurant"/> </p>
+            <button class="btn btn-primary" id = "submitRestaurantName" onclick={addRestaurant()}>Submit </button>
+            <br><br>
+            <h5>Restaurant List</h5>
+            
+            
+                <% var keys = Object.keys(restaurants) %>
+
+                <% keys.forEach(function(key) { %>
+                    <% var allUsers %> 
+                   
+                    <% if (restaurants[key].votes) { %>
+                        <% allUsers = Object.keys(restaurants[key].votes) %>
+                    <% } else { %>
+                    <%  allUsers = [] %>
+                    <% } %>                    
+                    
+                    <div class="col s6 m6 l6">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+                          <span class="card-title"> <%= restaurants[key].name %> : <%= allUsers.length %></span>
+                          
+                        </div>
+                        <div class="card-action">
+                          <button onclick={upvote("<%= key %>")} class="btn btn-outline-primary" >Upvote</button>
+                          <button onclick={downvote("<%= key %>")} class="btn btn-outline-primary" >Downvote</button>
+                        </div>
+                      </div>
+                    </div>                
+                <% }) %>
+            </div>
+
+               
+
+               
+                
+
+            <div class="container">
+            <br> 
+            <br>
+            <h5 id="google-displayName"></h5>
+            <img id="google-pic" name="circular--square" src="" />
+            <p id="google-email"></p>
+            <button 
+                class="btn btn-primary"
+                id="google-signin" 
+                onclick={signInWithGoogle()}
+            >
+                Sign In With Google
+            </button>
+            <button 
+                class="btn btn-danger"
+                id="signout" 
+                onclick={signOut()}
+                style="display: none; visibility: hidden;"
+            > Sign Out </button>
+            </div>
+                
+            
+        
+        
+            <script src="js/firebaseAuth.js"></script>
+            <script src = "js/firebaseVoting.js"></script>
+        </div>
+        
+    </body>
+
+</html>

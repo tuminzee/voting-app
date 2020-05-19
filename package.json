@@ -1,0 +1,26 @@
+{
+  "name": "firebase-voting-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "^2.6.2",
+    "express": "^4.16.4",
+    "firebase-admin": "^8.12.1",
+    "http-errors": "~1.6.3"
+  },
+  "devDependencies": {
+    "firebase": "^7.14.4"
+  },
+  "engines": {
+    "node": "10.x"
+  }
+}
