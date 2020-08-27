@@ -41,6 +41,30 @@
     <body>
         <div class="container">
             <h4> Voting App </h4>
+
+            <div class="container">
+                <br> 
+                <br>
+                <h5 id="google-displayName"></h5>
+                <img id="google-pic" name="circular--square" src="" />
+                <p id="google-email"></p>
+                <button 
+                    class="btn btn-primary"
+                    id="google-signin" 
+                    onclick={signInWithGoogle()}
+                >
+                    Sign In With Google
+                </button>
+                <button 
+                    class="btn btn-danger"
+                    id="signout" 
+                    onclick={signOut()}
+                    style="display: none; visibility: hidden;"
+                > Sign Out </button>
+                </div>
+
+
+
             <br>
             <p>Add Restaurant: <input type="text" name="" id="addRestaurant"/> </p>
             <button class="btn btn-primary" id = "submitRestaurantName" onclick={addRestaurant()}>Submit </button>
@@ -79,26 +103,7 @@
                
                 
 
-            <div class="container">
-            <br> 
-            <br>
-            <h5 id="google-displayName"></h5>
-            <img id="google-pic" name="circular--square" src="" />
-            <p id="google-email"></p>
-            <button 
-                class="btn btn-primary"
-                id="google-signin" 
-                onclick={signInWithGoogle()}
-            >
-                Sign In With Google
-            </button>
-            <button 
-                class="btn btn-danger"
-                id="signout" 
-                onclick={signOut()}
-                style="display: none; visibility: hidden;"
-            > Sign Out </button>
-            </div>
+            
                 
             
         
